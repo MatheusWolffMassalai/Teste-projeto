@@ -14,8 +14,6 @@ Meteor.methods({
           password: senha
         });
       }
-      
-    
     },
     'tarefa.adiciona'(text) {
       check(text, String);

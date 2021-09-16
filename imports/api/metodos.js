@@ -22,7 +22,7 @@ Meteor.methods({
       
       const data = new Date()
       if (!this.userId) {
-        throw new Meteor.Error('Not authorized.');
+        throw new Meteor.Error('Não autorizado.');
       }
    
       Tarefa.insert({
@@ -40,11 +40,11 @@ Meteor.methods({
       check(tarefaId, String);
    
       if (!this.userId) {
-        throw new Meteor.Error('Not authorized.');
+        throw new Meteor.Error('Não autorizado.');
       }
       const task = Tarefa.findOne({ _id: tarefaId, userId: this.userId });
       if (!task) {
-        throw new Meteor.Error('Access denied.');
+        throw new Meteor.Error('Acesso Negado');
       }
       Tarefa.remove(tarefaId);
     },
@@ -52,11 +52,11 @@ Meteor.methods({
       check(ids, Array);
       const query = { _id: { $in: ids} }
       if (!this.userId) {
-        throw new Meteor.Error('Not authorized.');
+        throw new Meteor.Error('Não autorizado.');
       }
       const task = Tarefa.find(query, {userId: this.userId });
       if (!task) {
-        throw new Meteor.Error('Access denied.');
+        throw new Meteor.Error('Acesso Negado');
       }
      
       
@@ -68,7 +68,7 @@ Meteor.methods({
       check(completo, Boolean);
    
       if (!this.userId) {
-        throw new Meteor.Error('Not authorized.');
+        throw new Meteor.Error('Não autorizado.');
       }
    
       Tarefa.update(tarefaId, {
@@ -82,7 +82,7 @@ Meteor.methods({
       check(prioridade, String);
    
       if (!this.userId) {
-        throw new Meteor.Error('Not authorized.');
+        throw new Meteor.Error('Não autorizado.');
       }
    
       Tarefa.update(tarefaId, {
@@ -96,7 +96,7 @@ Meteor.methods({
       check(deleta, Boolean);
    
       if (!this.userId) {
-        throw new Meteor.Error('Not authorized.');
+        throw new Meteor.Error('Não autorizado.');
       }
    
       Tarefa.update(tarefaId, {

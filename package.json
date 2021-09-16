@@ -1,0 +1,30 @@
+{
+  "name": "teste",
+  "private": true,
+  "scripts": {
+    "start": "meteor run --settings settings.json",
+    "test": "meteor test --once --driver-package meteortesting:mocha",
+    "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
+    "visualize": "meteor --production --extra-packages bundle-visualizer",
+    "dev": "MONGO_URL: mongodb+srv://matheus:Mario644@cluster0.fhw6z.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.14.8",
+    "bcrypt": "^5.0.1",
+    "meteor-node-stubs": "^1.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.1",
+    "uniqid": "^5.4.0"
+  },
+  "meteor": {
+    "mainModule": {
+      "client": "client/main.jsx",
+      "server": "server/main.js"
+    },
+    "testModule": "tests/main.js"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4"
+  }
+}
